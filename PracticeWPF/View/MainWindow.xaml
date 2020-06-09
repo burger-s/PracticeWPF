@@ -1,0 +1,20 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        xmlns:v="clr-namespace:PracticeWPF.View"
+        xmlns:vm="clr-namespace:PracticeWPF.ViewModel"
+        xmlns:local="clr-namespace:PracticeWPF"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="PracticeWPF.View.MainWindow"
+        mc:Ignorable="d"
+        Title="{Binding title}" Height="450" Width="670">
+    <Window.DataContext>
+        <vm:MainWindowViewModel />
+    </Window.DataContext>
+    <Grid>
+        <v:LineChart Values="{Binding Values}" Labels="{Binding Labels}">
+        </v:LineChart>
+    </Grid>
+</Window>

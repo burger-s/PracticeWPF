@@ -39,8 +39,8 @@ namespace PracticeWPF.View
             set => SetValue(ChartValuesProperty, value);
         }
         //public ObservableCollection<string> Labels { get; set; }
-        public static readonly DependencyProperty ChartLabelsProperty = DependencyProperty.Register(nameof(Labels), typeof(object), typeof(UserControl));
-        public ObservableCollection<string> Labels
+        public static readonly DependencyProperty ChartLabelsProperty = DependencyProperty.Register(nameof(mLabels), typeof(object), typeof(UserControl));
+        public ObservableCollection<string> mLabels
         {
             get => (ObservableCollection<string>)GetValue(ChartLabelsProperty);
             set => SetValue(ChartLabelsProperty, value);

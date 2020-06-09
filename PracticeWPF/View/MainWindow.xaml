@@ -9,12 +9,23 @@
         xmlns:local="clr-namespace:PracticeWPF"
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="PracticeWPF.View.MainWindow"
         mc:Ignorable="d"
-        Title="{Binding title}" Height="450" Width="670">
+        Title="My Stock Test Application" Height="450" Width="670">
     <Window.DataContext>
         <vm:MainWindowViewModel />
     </Window.DataContext>
     <Grid>
-        <v:LineChart Values="{Binding Values}" Labels="{Binding Labels}">
-        </v:LineChart>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition  />
+        </Grid.RowDefinitions>
+        <WrapPanel Grid.Row="0">
+            <TextBox Width="170" Margin="10"/>
+            <Button Width="80" Margin="10" Content="Get"/>
+        </WrapPanel>
+        <WrapPanel Grid.Row="1">
+            <Label Margin="10" Content="{Binding title}" />
+        </WrapPanel>
+        <v:LineChart Grid.Row="2" Values="{Binding Values}" mLabels="{Binding Labels}" />
     </Grid>
 </Window>

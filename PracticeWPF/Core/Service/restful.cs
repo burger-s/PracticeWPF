@@ -13,12 +13,10 @@ namespace PracticeWPF.Core.Service
     {
         private static string http = "https://www.twse.com.tw/exchangeReport/";
 
-        public static TResult Get_STOCK_DAY_AVG<TResult>()
+        public static TResult Get_STOCK_DAY_AVG<TResult>(string stockNo, DateTime selectMonth)
         {
             string format = "json";
-            int stockNo = 3023;
-            DateTime date = new DateTime(2020, 5, 1);
-            string para = "STOCK_DAY_AVG?response=" + format + "&date=" + date.ToString("yyyyMMdd") + "&stockNo=" + stockNo.ToString();
+            string para = "STOCK_DAY_AVG?response=" + format + "&date=" + selectMonth.ToString("yyyyMMdd") + "&stockNo=" + stockNo;
 
             RestClient client = new RestClient(http + para);
 

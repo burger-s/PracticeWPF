@@ -1,13 +1,12 @@
-﻿<Window
+﻿<Window x:Class="PracticeWPF.View.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        xmlns:local="clr-namespace:PracticeWPF"    
         xmlns:v="clr-namespace:PracticeWPF.View"
+        xmlns:core="clr-namespace:PracticeWPF.Core"
         xmlns:vm="clr-namespace:PracticeWPF.ViewModel"
-        xmlns:local="clr-namespace:PracticeWPF"
-        xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="PracticeWPF.View.MainWindow"
         mc:Ignorable="d"
         Title="My Stock Test Application" Height="450" Width="670">
     <Window.DataContext>
@@ -19,9 +18,10 @@
             <RowDefinition Height="50" />
             <RowDefinition  />
         </Grid.RowDefinitions>
-        <WrapPanel Grid.Row="0">
-            <TextBox Width="170" Margin="10"/>
-            <Button Width="80" Margin="10" Content="Get"/>
+        <WrapPanel Grid.Row="0" IsEnabled="{Binding Idle, Mode=OneWay}">
+            <DatePicker Width="120" Margin="10" core:DatePickerCalendar.IsMonthYear="True" core:DatePickerDateFormat.DateFormat="yyyy/MM" SelectedDate="{Binding selectMonth, Mode=OneWayToSource}" />
+            <TextBox Width="170" Margin="10" Text="{Binding stockNumber, Mode=OneWayToSource}" />
+            <Button Width="80" Margin="10" Content="Get" Command="{Binding cmdGetData}" />
         </WrapPanel>
         <WrapPanel Grid.Row="1">
             <Label Margin="10" Content="{Binding title}" />
